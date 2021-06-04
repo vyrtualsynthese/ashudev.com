@@ -14,4 +14,3 @@ app.forEach(element => {
   avatar.alt = 'Valentin RONTEIX';
   element.append(avatar)
 })
-console.log(app)
