@@ -34,7 +34,8 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         path: buildPath,
-        clean: true
+        clean: true,
+        assetModuleFilename: 'img/[hash][ext][query]'
     },
 
     // https://webpack.js.org/concepts/loaders/
