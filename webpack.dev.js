@@ -68,7 +68,8 @@ module.exports = {
             template: './src/index.html',
             inject: true,
             chunks: ['index'],
-            filename: 'index.html'
+            filename: 'index.html',
+            favicon: './src/favicon.ico'
         }),
     ]
 }
