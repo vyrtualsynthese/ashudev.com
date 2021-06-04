@@ -41,7 +41,7 @@
   "bugs": {
     "url": "https://github.com/vyrtualsynthese/ashudevWebsite/issues"
   },
-  "homepage": "https://github.com/vyrtualsynthese/ashudevWebsite#readme",
+  "homepage": "https://ashudev.com",
   "description": "",
   "dependencies": {
     "file-loader": "^6.2.0"
