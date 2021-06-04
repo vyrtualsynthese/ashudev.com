@@ -9,6 +9,7 @@ const { extendDefaultPlugins } = require("svgo");
 const buildPath = path.resolve(__dirname, 'docs')
 const glob = require("glob");
 const PurgecssPlugin = require('purgecss-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const PATHS = {
     src: path.join(__dirname, 'src')
@@ -34,7 +35,6 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         path: buildPath,
-        clean: true,
         assetModuleFilename: 'img/[hash][ext][query]'
     },
 
@@ -123,6 +123,11 @@ module.exports = {
                     ],
                 ],
             },
+        }),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                '!CNAME',
+            ],
         }),
     ],
 
