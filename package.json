@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --",
     "start:dist": "http-server dist --port ${PORT:-8080}",
-    "build": "webpack --config webpack.prod.js --stats-children",
+    "build": "webpack --config webpack.prod.js",
     "preview": "npm run build && npm run start:dist",
     "test": "standard",
     "cy:run": "cypress run"
@@ -18,19 +18,19 @@
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "cypress": "^7.2.0",
+    "glob": "^7.1.7",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
     "http-server": "^0.12.3",
     "mini-css-extract-plugin": "^1.6.0",
     "normalize.css": "^8.0.1",
+    "purgecss-webpack-plugin": "^4.0.3",
     "standard": "^16.0.3",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.1",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2",
-    "glob": "^7.1.7",
-    "purgecss-webpack-plugin": "^4.0.3"
+    "webpack-dev-server": "^3.11.2"
   },
   "repository": {
     "type": "git",
@@ -42,5 +42,8 @@
     "url": "https://github.com/vyrtualsynthese/ashudevWebsite/issues"
   },
   "homepage": "https://github.com/vyrtualsynthese/ashudevWebsite#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "file-loader": "^6.2.0"
+  }
 }

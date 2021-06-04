@@ -42,7 +42,7 @@ module.exports = {
             },
             {
                 // https://webpack.js.org/guides/asset-modules/#resource-assets
-                test: /\.(png|jpe?g|gif|svg)$/i,
+                test: /\.(png|jpe?g|gif)$/i,
                 type: 'asset/resource'
             },
             {
@@ -54,6 +54,10 @@ module.exports = {
                 // https://webpack.js.org/loaders/html-loader/#usage
                 resourceQuery: /template/,
                 loader: 'html-loader'
+            },
+            {
+                test: /\.(svg|eot|woff|woff2|ttf)$/,
+                use: ['file-loader']
             }
         ]
     },

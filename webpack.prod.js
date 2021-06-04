@@ -8,7 +8,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const buildPath = path.resolve(__dirname, 'dist')
 
 const glob = require("glob");
-const PurgeCSSPlugin = require("purgecss-webpack-plugin");
+const PurgecssPlugin = require('purgecss-webpack-plugin')
 
 const PATHS = {
     src: path.join(__dirname, 'src')
@@ -61,7 +61,7 @@ module.exports = {
             },
             {
                 // https://webpack.js.org/guides/asset-modules/#resource-assets
-                test: /\.(png|jpe?g|gif|svg)$/i,
+                test: /\.(png|jpe?g|gif)$/i,
                 type: 'asset/resource'
             },
             {
@@ -73,6 +73,10 @@ module.exports = {
                 // https://webpack.js.org/loaders/html-loader/#usage
                 resourceQuery: /template/,
                 loader: 'html-loader'
+            },
+            {
+                test: /\.(svg|eot|woff|woff2|ttf)$/,
+                use: ['file-loader']
             }
         ]
     },
@@ -85,7 +89,10 @@ module.exports = {
             chunks: ['index'],
             filename: 'index.html'
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new PurgecssPlugin({
+            paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+        }),
     ],
 
     // https://webpack.js.org/configuration/optimization/
