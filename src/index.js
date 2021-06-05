@@ -2,6 +2,7 @@ require('normalize.css/normalize.css')
 require('./css/materialize.css')
 require('./css/all.css')
 require('./css/style.css')
+import profile from /* webpackPreload: true */ './img/profile.jpg';
 const resume = require('./resources/CV_EN_Multi.pdf')
 
 
@@ -21,8 +22,7 @@ if (document.readyState === 'loading') {
 const imgLazy = async () => {
   const app = document.querySelectorAll('.avatar > img')
   app.forEach(element => {
-    const img = require('./img/profile.jpg');
-    element.setAttribute('src', img)
+    element.setAttribute('src', profile)
   })
 }
 
