@@ -58,6 +58,7 @@
   "homepage": "https://ashudev.com",
   "description": "",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.14.3",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "jpegtran-bin": "^5.0.2"
   }

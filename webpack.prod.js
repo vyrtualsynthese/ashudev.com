@@ -50,7 +50,12 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: ['@babel/preset-env'],
+                        plugins: [['@babel/plugin-transform-runtime',
+                            {
+                                "regenerator": true
+                            }]
+                        ]
                     }
                 }
             },
@@ -102,6 +107,7 @@ module.exports = {
             paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
         }),
         new ImageMinimizerPlugin({
+            test: /\.(jpe?g|png|gif|svg)$/i,
             minimizerOptions: {
                 // Lossless optimization with custom option
                 // Feel free to experiment with options for better result for you
