@@ -10,6 +10,8 @@ const buildPath = path.resolve(__dirname, 'docs')
 const glob = require("glob");
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const zlib = require("zlib");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 const PATHS = {
     src: path.join(__dirname, 'src')
@@ -35,7 +37,7 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         path: buildPath,
-        assetModuleFilename: 'img/[hash][ext][query]'
+        assetModuleFilename: 'assets/[hash][ext][query]'
     },
 
     // https://webpack.js.org/concepts/loaders/
@@ -63,7 +65,7 @@ module.exports = {
             {
                 // https://webpack.js.org/guides/asset-modules/#resource-assets
                 test: /\.(png|jpe?g|gif)$/i,
-                type: 'asset/resource'
+                type: 'asset/resource',
             },
             {
                 // https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
@@ -77,7 +79,11 @@ module.exports = {
             },
             {
                 test: /\.(svg|eot|woff|woff2|ttf)$/,
-                use: ['file-loader']
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(pdf)$/,
+                type: 'asset/resource',
             }
         ]
     },
@@ -128,6 +134,18 @@ module.exports = {
             cleanOnceBeforeBuildPatterns: [
                 '!CNAME',
             ],
+        }),
+        new CompressionPlugin({
+            filename: "[path][base].br",
+            algorithm: "brotliCompress",
+            test: /\.(js|css|html|svg|ttf|woff2|woff|eot|pdf|map)$/,
+            compressionOptions: {
+                params: {
+                    [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+                },
+            },
+            minRatio: 0.8,
+            deleteOriginalAssets: false,
         }),
     ],
 

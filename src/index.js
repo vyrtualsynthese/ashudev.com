@@ -2,6 +2,7 @@ require('normalize.css/normalize.css')
 require('./css/materialize.css')
 require('./css/all.css')
 require('./css/style.css')
+const resume = require('./resources/CV_EN_Multi.pdf')
 
 const app = document.querySelectorAll('.avatar')
 
@@ -13,3 +14,7 @@ app.forEach(element => {
   avatar.alt = 'Valentin RONTEIX';
   element.append(avatar)
 })
+
+const pdf = document.querySelector('.pdf')
+
+pdf.setAttribute('href', resume);
