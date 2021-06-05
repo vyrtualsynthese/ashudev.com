@@ -4,13 +4,21 @@ require('./css/all.css')
 require('./css/style.css')
 const resume = require('./resources/CV_EN_Multi.pdf')
 
-window.addEventListener("DOMContentLoaded", function(){
-  console.log("loaded")
-  document.getElementById("wrapper").removeAttribute("hidden");
-});
 
+// Unhide content when DOM is ready
+const unHide = () => document.getElementById("wrapper").removeAttribute("hidden");
+
+
+if (document.readyState === 'loading') {
+  window.addEventListener("DOMContentLoaded", function(){
+    unHide()
+  });
+} else {
+  unHide()
+}
+
+// Img place holder to avoid moving content on img loads.
 const imgLazy = async () => {
-  console.log("async")
   const app = document.querySelectorAll('.avatar > img')
   app.forEach(element => {
     const img = require('./img/profile.jpg');
@@ -20,6 +28,6 @@ const imgLazy = async () => {
 
 imgLazy().then()
 
+// Pdf link injecter
 const pdf = document.querySelector('.pdf')
-
 pdf.setAttribute('href', resume);
