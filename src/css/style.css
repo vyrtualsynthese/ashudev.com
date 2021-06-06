@@ -20,6 +20,7 @@
 img {
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPHBhdGggZD0iTTAgNCBMMCAyOCBMMzIgMjggTDMyIDQgeiBNNCAyNCBMMTAgMTAgTDE1IDE4IEwxOCAxNCBMMjQgMjR6IE0yNSA3IEE0IDQgMCAwIDEgMjUgMTUgQTQgNCAwIDAgMSAyNSA3Ij48L3BhdGg+Cjwvc3ZnPg==") no-repeat center hsl(0, 0%, 80%);
 }
+
 .page-flexbox-wrapper {
     display: flex;
     min-height: 100vh;
@@ -29,4 +30,15 @@ main {
     flex: 1 1 auto;
 }
 
+i {
+    height: 25px;
+    width: 25px;
+}
 
+.svg-inline--fa {
+    font-size: 25px;
+}
+
+.btn-push {
+    line-height: 60px;
+}
