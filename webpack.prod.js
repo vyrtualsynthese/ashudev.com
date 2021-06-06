@@ -102,9 +102,12 @@ module.exports = {
             filename: 'index.html',
             favicon: './src/favicon.ico'
         }),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+        }),
         new PurgecssPlugin({
             paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+            fontFace: true,
         }),
         new ImageMinimizerPlugin({
             test: /\.(jpe?g|png|gif|svg)$/i,
@@ -160,7 +163,7 @@ module.exports = {
             threshold: 10240,
             minRatio: 0.8,
             deleteOriginalAssets: false,
-        }),
+        })
     ],
 
     // https://webpack.js.org/configuration/optimization/
