@@ -2,7 +2,9 @@ import ('normalize.css/normalize.css')
 import ('./css/materialize.css')
 import ('./css/all.css')
 import ('./css/style.css')
-import profile from /* webpackPreload: true */ './img/profile.jpg';
+const imgLazy = () => import (/* webpackPreload: true */'./js/img.js');
+
+// import profile from  './img/profile.jpg';
 const resume = require('./resources/CV_EN_Multi.pdf')
 
 if (document.readyState === 'complete') {
@@ -15,15 +17,9 @@ if (document.readyState === 'complete') {
   });
 }
 
-// Img place holder to avoid moving content on img loads.
-const imgLazy = async () => {
-  const app = document.querySelectorAll('.avatar > img')
-  app.forEach(element => {
-    element.setAttribute('src', profile)
-  })
-}
-
-imgLazy().then()
+imgLazy().then(({imgLazy}) =>{
+  imgLazy().then()
+})
 
 // Pdf link injecter
 const pdf = document.querySelector('.pdf')

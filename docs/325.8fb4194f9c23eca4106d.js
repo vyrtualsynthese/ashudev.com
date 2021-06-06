@@ -1,0 +1,2 @@
+(self.webpackChunkashudevwebsite=self.webpackChunkashudevwebsite||[]).push([[325],{325:(e,t,u)=>{"use strict";u.r(t),u.d(t,{imgLazy:()=>n});function n(){return u.e(182).then(u.t.bind(u,182,17)).then((function(e){document.querySelectorAll(".avatar > img").forEach((function(t){t.setAttribute("src",e.default)}))}))}}}]);
+//# sourceMappingURL=325.8fb4194f9c23eca4106d.js.map
