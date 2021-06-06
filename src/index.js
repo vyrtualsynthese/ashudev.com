@@ -1,21 +1,18 @@
-require('normalize.css/normalize.css')
-require('./css/materialize.css')
-require('./css/all.css')
-require('./css/style.css')
+import ('normalize.css/normalize.css')
+import ('./css/materialize.css')
+import ('./css/all.css')
+import ('./css/style.css')
 import profile from /* webpackPreload: true */ './img/profile.jpg';
 const resume = require('./resources/CV_EN_Multi.pdf')
 
-
-// Unhide content when DOM is ready
-const unHide = () => document.getElementById("wrapper").removeAttribute("hidden");
-
-
-if (document.readyState === 'loading') {
-  window.addEventListener("DOMContentLoaded", function(){
-    unHide()
-  });
+if (document.readyState === 'complete') {
+  console.log('loaded')
+  document.getElementById('wrapper').removeAttribute("hidden");
 } else {
-  unHide()
+  console.log('loading load else')
+  window.addEventListener('load', function(){
+    document.getElementById("wrapper").removeAttribute("hidden");
+  });
 }
 
 // Img place holder to avoid moving content on img loads.
