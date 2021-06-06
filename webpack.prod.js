@@ -144,26 +144,6 @@ module.exports = {
                 '!CNAME',
             ],
         }),
-        new CompressionPlugin({
-            filename: "[path][base].br",
-            algorithm: "brotliCompress",
-            test: /\.js$|css$|html$|svg$|ttf$|woff2$|woff$|eot$|pdf$|map$/,
-            compressionOptions: {
-                params: {
-                    [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
-                },
-            },
-            minRatio: 0.8,
-            deleteOriginalAssets: false,
-        }),
-        new CompressionPlugin({
-            filename: "[path][base].gz",
-            algorithm: "gzip",
-            test: /\.(js|css|html|svg|ttf|woff2|woff|eot|pdf|map)$/,
-            threshold: 10240,
-            minRatio: 0.8,
-            deleteOriginalAssets: false,
-        })
     ],
 
     // https://webpack.js.org/configuration/optimization/
