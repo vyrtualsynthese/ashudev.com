@@ -1,7 +1,10 @@
-const font = () => import (/* webpackPreload: true */'@fortawesome/fontawesome-free/js/brands.min')
-const fa = () => import (/* webpackPreload: true */'@fortawesome/fontawesome-free/js/fontawesome.min')
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import { faLinkedinIn, faGithub, faMedium, faDev, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 // Img place holder to avoid moving content on img loads.
 export function fontLoader () {
-  return font().then(fa().then)
+  library.add(faLinkedinIn, faGithub, faMedium, faDev, faYoutube)
+
+  dom.i2svg()
+  return Promise.resolve()
 }

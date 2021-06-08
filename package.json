@@ -18,8 +18,11 @@
   "devDependencies": {
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
     "compression-webpack-plugin": "^8.0.0",
     "css-loader": "^5.2.6",
     "css-minimizer-webpack-plugin": "^3.0.1",
@@ -34,8 +37,11 @@
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^9.0.0",
+    "jpegtran-bin": "^5.0.2",
     "mini-css-extract-plugin": "^1.6.0",
     "normalize.css": "^8.0.1",
+    "purgecss-from-html": "^4.0.3",
+    "purgecss-from-js": "^1.0.0",
     "purgecss-webpack-plugin": "^4.0.3",
     "standard": "^16.0.3",
     "style-loader": "^2.0.0",
@@ -46,12 +52,8 @@
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2",
     "zlib": "^1.0.5",
-    "@babel/plugin-transform-runtime": "^7.14.3",
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "clean-webpack-plugin": "^4.0.0-alpha.0",
-    "jpegtran-bin": "^5.0.2",
-    "purgecss-from-html": "^4.0.3",
-    "purgecss-from-js": "^1.0.0"
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3"
   },
   "repository": {
     "type": "git",
@@ -65,5 +67,6 @@
   "homepage": "https://ashudev.com",
   "description": "",
   "dependencies": {
+    "babel-minify-webpack-plugin": "^0.3.1"
   }
 }

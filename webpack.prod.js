@@ -10,8 +10,7 @@ const buildPath = path.resolve(__dirname, 'docs')
 const glob = require("glob");
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const zlib = require("zlib");
-const CompressionPlugin = require("compression-webpack-plugin");
+const BabelMinifyPlugin = require('babel-minify-webpack-plugin')
 
 const PATHS = {
     src: path.join(__dirname, 'src')
@@ -150,12 +149,14 @@ module.exports = {
     optimization: {
         minimize: true,
         minimizer: [
+            new BabelMinifyPlugin(),
             // https://webpack.js.org/plugins/terser-webpack-plugin/
             new TerserPlugin({
                 parallel: true
             }),
             // https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production
             new CssMinimizerPlugin(),
-        ]
+        ],
+
     }
 }

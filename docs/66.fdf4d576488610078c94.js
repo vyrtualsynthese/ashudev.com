@@ -1,2 +1,0 @@
-(self.webpackChunkashudevwebsite=self.webpackChunkashudevwebsite||[]).push([[66],{66:(e,t,n)=>{"use strict";n.r(t),n.d(t,{fontLoader:()=>h});function h(){return n.e(382).then(n.t.bind(n,382,23)).then(n.e(911).then(n.t.bind(n,911,23)).then)}}}]);
-//# sourceMappingURL=66.fdf4d576488610078c94.js.map
