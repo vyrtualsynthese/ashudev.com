@@ -1,4 +1,5 @@
-FROM node:14.17.4-alpine3.14 AS dev
+#### Builder Stage ####
+FROM node:14.17.4-alpine3.14 AS builder
 
 WORKDIR /home/node/app
 ENV NODE_ENV development
@@ -22,6 +23,9 @@ RUN apk add --update-cache \
     zlib \
     zlib-dev \
   && rm -rf /var/cache/apk/*
+
+#### Dev Stage ####
+FROM builder AS dev
 
 COPY package*.json ./
 RUN npm i --ignore-scripts
