@@ -1,7 +1,4 @@
 #### Builder Stage ####
-<<<<<<< HEAD
-FROM node:14.19.1-alpine3.14 AS builder
-=======
 FROM node:16-alpine AS builder
 
 WORKDIR /home/node/app
