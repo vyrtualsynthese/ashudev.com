@@ -3,7 +3,6 @@
 FROM node:14.19.1-alpine3.14 AS builder
 =======
 FROM node:16-alpine AS builder
->>>>>>> bca5fda4 (:green_heart: fix: Bumped node version)
 
 WORKDIR /home/node/app
 ENV NODE_ENV development
